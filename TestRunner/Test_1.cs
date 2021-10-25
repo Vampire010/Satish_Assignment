@@ -14,7 +14,7 @@ namespace Satish_Assignment.TestScripts
     {
         public static string url = "https://www.kurtosys.com/";
         public static IWebDriver driver;
-        [Test]
+      //  [Test]
         [Obsolete]
         public static void Tc_01()
         {
