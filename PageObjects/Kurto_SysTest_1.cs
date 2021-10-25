@@ -88,14 +88,16 @@ namespace Satish_Assignment.PageObjects
             IWebElement FirstName = Browser_Launcher.driver.FindElement(FirstName_loc);
             FirstName.SendKeys(Fst_name);
             Submit_form_btn();
-
-            string fst_val = FirstName.GetAttribute("value");
-            if (Fst_name.Equals(fst_val))
+            IWebElement field_req = Browser_Launcher.driver.FindElement(By.Id("error_for_18882_241306pi_18882_241306"));
+            Boolean fst_val = field_req.Displayed;
+            Boolean status = true;
+            if (status.Equals(fst_val))
             {
-                Assert.That(Fst_name, Is.EqualTo(fst_val));
+                Assert.That(status, Is.EqualTo(fst_val));
             }
             else
             {
+                Thread.Sleep(4000);
                 takescreenshots("first_name_Error.png");
             }
 
@@ -106,15 +108,21 @@ namespace Satish_Assignment.PageObjects
             IWebElement LastName = Browser_Launcher.driver.FindElement(LastName_loc);
             LastName.SendKeys(lst_name);
             Submit_form_btn();
-            string lst_val = LastName.GetAttribute("value");
-            if (lst_name.Equals(lst_val))
+
+           //VALIDATION eLEMENTS
+            IWebElement field_req = Browser_Launcher.driver.FindElement(By.Id("error_for_18882_241308pi_18882_241308"));
+            Boolean lst_val = field_req.Displayed;
+            Boolean status = true;
+
+            if (status.Equals(lst_val))
             {
                 Console.WriteLine(lst_val);
             }
             else
             {
+                Thread.Sleep(2000);
                 takescreenshots("Last_name_Error.png");
-                Assert.That(lst_name, Is.EqualTo(lst_val));
+                Assert.That(status, Is.EqualTo(lst_val));
 
             }
 
@@ -125,7 +133,7 @@ namespace Satish_Assignment.PageObjects
             email_inp.SendKeys(email);
 
             Submit_form_btn();
-
+            //VALIDATION eLEMENTS
             IWebElement field_req = Browser_Launcher.driver.FindElement(By.Id("error_for_18882_241310pi_18882_241310"));
             Boolean eml_val = field_req.Displayed;
             Boolean status = true;
@@ -148,15 +156,20 @@ namespace Satish_Assignment.PageObjects
             company.SendKeys(company_name);
 
             Submit_form_btn();
-            string compny_val = company.GetAttribute("value");
-            if (company_name.Equals(compny_val))
+            //VALIDATION eLEMENTS
+            IWebElement field_req = Browser_Launcher.driver.FindElement(By.Id("error_for_18882_241310pi_18882_241310"));
+            Boolean compny_val = field_req.Displayed;
+            Boolean status = true;
+            if (status.Equals(compny_val))
             {
                 Console.WriteLine("compny_val");
             }
             else
             {
+                Thread.Sleep(2000);
+
                 takescreenshots("company_name_Error.png");
-                Assert.That(company_name, Is.EqualTo(compny_val));
+                Assert.That(status, Is.EqualTo(compny_val));
 
             }
         }
@@ -166,6 +179,27 @@ namespace Satish_Assignment.PageObjects
             IWebElement industry = Browser_Launcher.driver.FindElement(industry_loc);
             SelectElement industrys = new SelectElement(industry);
             industrys.SelectByText("Asset and Investment Management");
+          
+            //Click on Submit Button
+            Submit_form_btn();
+            //VALIDATION eLEMENTS
+            IWebElement field_req = Browser_Launcher.driver.FindElement(By.Id("error_for_18882_241314pi_18882_241314"));
+            Boolean industry_val = field_req.Displayed;
+            Boolean status = true;
+            if (status.Equals(industry_val))
+            {
+                Console.WriteLine("compny_val");
+            }
+            else
+            {
+                Thread.Sleep(2000);
+                takescreenshots("industry_name_Error.png");
+                Assert.That(status, Is.EqualTo(industry_val));
+
+            }
+
+
+
         }
 
         //Click on Submit Button

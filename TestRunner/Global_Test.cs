@@ -14,7 +14,7 @@ namespace Satish_Assignment.TestRunner
         public static string browser_type = "chrome";
    
 
-     //   [Test]
+       [Test]
         public static void Test_01()
         {
             Kurto_SysTest_1 krt = new Kurto_SysTest_1(Browser_Launcher.driver);
@@ -23,12 +23,12 @@ namespace Satish_Assignment.TestRunner
             krt.Resourse_drpdn();
             krt.Click_Any_White_Papers_eBooks1();
             krt.iframe_Form();
-            krt.Frst_Name("Jon");
+            krt.Frst_Name("");
             krt.Last_Name("key");
             krt.Email_TextField("joe@");
             krt.company_txtfield("");
             krt.Industry_Drpdn();
-            krt.Submit_form_btn();
+        //    krt.Submit_form_btn();
         }
 
     }
